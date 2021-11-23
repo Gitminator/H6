@@ -1,4 +1,4 @@
-package eu.bb.bbeubackend.Objects;
+package Objects;
 
 public class Room {
     private String address;
