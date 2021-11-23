@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BB.eu-Dataaccess:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BB_eu_Dataaccess_jar</output-path>
+    <root id="archive" name="BB.eu-Dataaccess_jar.jar" />
+  </artifact>
+</component>
