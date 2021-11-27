@@ -2,6 +2,7 @@ package eu.bb.bbeubackend.ResourceImpl;
 
 import eu.bb.bbeubackend.Handlers.ServerHandlerRoom;
 import eu.bb.bbeubackend.Objects.Room;
+import eu.bb.bbeubackend.Serialization.DeSerializer;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
@@ -9,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomImpl {
-    ServerHandlerRoom handlerRoom;
+    ServerHandlerRoom handlerRoom = new ServerHandlerRoom();
+    DeSerializer deserializer = new DeSerializer();
 
     /**
      * Henter alle rooms
@@ -17,10 +19,12 @@ public class RoomImpl {
      */
     public List<String> GetRooms()
     {
-        List<String> rooms = new ArrayList<String>();
+        List<String> serializedRooms = new ArrayList<String>();
+//        List<Room> rooms = new ArrayList<Room>();
+        serializedRooms = handlerRoom.GetRooms();
+//        rooms = deserializer.DeserializeRooms(serializedRooms);
 
-
-        return rooms;
+        return serializedRooms;
     }
     /**
      * Henter et specifikt room

@@ -16,4 +16,8 @@ public class Room {
     public void setPrice(int price) {
         this.price = price;
     }
+    public Room(String address, int price) {
+        this.address = address;
+        this.price = price;
+    }
 }

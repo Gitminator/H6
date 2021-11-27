@@ -1,1 +1,55 @@
-<p>searchbar works!</p>
+<div id="">
+<div id="SearchBar">
+<!--  <input type="text" placeholder="Search..">-->
+<!--  <mat-form-field class="example-form-field" appearance="fill">-->
+<!--    <mat-label>First campaign</mat-label>-->
+<!--    <mat-date-range-input-->
+<!--      [formGroup]="campaignOne"-->
+<!--      [rangePicker]="campaignOnePicker"-->
+<!--      [comparisonStart]="campaignTwo.value.start"-->
+<!--      [comparisonEnd]="campaignTwo.value.end">-->
+<!--      <input matStartDate placeholder="Start date" formControlName="start">-->
+<!--      <input matEndDate placeholder="End date" formControlName="end">-->
+<!--    </mat-date-range-input>-->
+<!--    <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>-->
+<!--    <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>-->
+<!--  </mat-form-field>-->
+<!--&lt;!&ndash;  <input matInput [matDatepicker]="picker">&ndash;&gt;-->
+<!--&lt;!&ndash;  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>&ndash;&gt;-->
+<!--&lt;!&ndash;  <mat-datepicker #picker></mat-datepicker>&ndash;&gt;-->
+
+
+
+  <form action="/action_page.php">
+    <label for="fromDate">Fra dato:</label>
+    <input type="date" id="fromDate" >
+<!--    <input type="submit">-->
+<!--    <label [className]="inputtest">skriv her</label>-->
+    <input type="text" [className]="inputtest">
+    <label [className]="testLabel">Her testes der</label>
+
+    <button (click)="search()">Søg </button>
+
+  </form>
+<!--  <mat-form-field appearance="fill">-->
+<!--    <mat-label>Choose a date</mat-label>-->
+<!--    <input matInput [matDatepicker]="picker">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker></mat-datepicker>-->
+<!--  </mat-form-field>-->
+
+<!--  <input matInput [matDatepicker]="picker">-->
+<!--  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--  <mat-datepicker #picker></mat-datepicker>-->
+
+<!--  <mat-date-range-input [rangePicker]="picker">-->
+<!--    <input matStartDate placeholder="Start date">-->
+<!--    <input matEndDate placeholder="End date">-->
+<!--  </mat-date-range-input>-->
+
+<!--  <mat-date-range-picker #picker></mat-date-range-picker>-->
+
+
+</div>
+
+</div>
