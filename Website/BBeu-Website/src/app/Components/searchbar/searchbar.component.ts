@@ -9,7 +9,9 @@ import {FormGroup, FormControl} from '@angular/forms';
 export class SearchbarComponent implements OnInit {
   picker: any;
   testLabel: any;
-  inputtest: any;
+  // inputtest: any;
+  // intputtest: string = "test";
+  testdatoLabel: any;
 
 
 
@@ -18,7 +20,13 @@ export class SearchbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  search() {
-    this.testLabel =this.inputtest;
+  search(inputtest:string) {
+    // this.testLabel.setValue = inputtest.toString();
+    console.log('it does nothing',inputtest);
+  }
+
+  datesearch(testdatoLabel:Date) {
+    // this.testLabel.setValue = inputtest.toString();
+    console.log('it does nothing',testdatoLabel);
   }
 }

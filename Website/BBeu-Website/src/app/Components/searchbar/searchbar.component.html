@@ -22,13 +22,27 @@
 
   <form action="/action_page.php">
     <label for="fromDate">Fra dato:</label>
-    <input type="date" id="fromDate" >
+
 <!--    <input type="submit">-->
 <!--    <label [className]="inputtest">skriv her</label>-->
-    <input type="text" [className]="inputtest">
-    <label [className]="testLabel">Her testes der</label>
+    <input type="text" value="hej" id="inputtest" name="inputtest" #inputtest>
+    <input type="date" id="fromDate" name="fromDate" #fromDate>
 
-    <button (click)="search()">Søg </button>
+
+    <label [className]="testLabel" >{{inputtest.value}}</label>
+
+
+
+    <button type="button" (click)="search">Søg </button>
+
+    <label [className]="testdatoLabel" >{{fromDate.value}}</label>
+
+
+    <button type="button" (click)="datesearch">Søg date </button>
+
+
+
+
 
   </form>
 <!--  <mat-form-field appearance="fill">-->
