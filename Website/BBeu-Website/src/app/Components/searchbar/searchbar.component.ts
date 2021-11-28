@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
+import {AddressServiceService} from "../../Services/address-service.service";
+
 
 @Component({
   selector: 'app-searchbar',
@@ -15,7 +17,7 @@ export class SearchbarComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private addressServiceService: AddressServiceService) { }
 
   ngOnInit(): void {
   }
