@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
-import {AddressServiceService} from "../../Services/address-service.service";
+import {RoomServiceService} from "../../Services/room-service.service";
 import {Room} from 'src/app/Objects/Room';
+
 
 
 @Component({
@@ -12,25 +13,25 @@ import {Room} from 'src/app/Objects/Room';
 export class SearchbarComponent implements OnInit {
 
   myControl = new FormControl();
+
   room!: Room;
   Rooms: Room[] = [];
   picker: any;
   testLabel: any;
-  // inputtest: any;
-  // intputtest: string = "test";
   testdatoLabel: any;
   parsedJson: any;
+  AddressLabel: any;
 
 
 
-  constructor(private addressServiceService: AddressServiceService) { }
+  constructor(private roomServiceService: RoomServiceService) { }
 
   ngOnInit(): void {
     this.getRooms();
   }
   getRooms()
   {
-    this.addressServiceService.getRooms().subscribe(
+    this.roomServiceService.getRooms().subscribe(
       value =>{
           this.parsedJson = JSON.parse(value)
           this.serializeRoom(this.parsedJson)
@@ -52,5 +53,9 @@ export class SearchbarComponent implements OnInit {
   datesearch(testdatoLabel:Date) {
     // this.testLabel.setValue = inputtest.toString();
     console.log('it does nothing',testdatoLabel);
+  }
+
+  addressSearch(AddressLabel:string){
+      console.log(AddressLabel);
   }
 }

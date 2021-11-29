@@ -11,12 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 // import { Room } from './Objects/Room';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { SearchtestingComponent } from './Components/searchtesting/searchtesting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    SearchtestingComponent
 
   ],
   imports: [
