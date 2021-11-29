@@ -16,7 +16,7 @@ public class RoomService {
         List<Room> rooms = new ArrayList<Room>();
         List<String> serializedRooms = new ArrayList<String>();
         rooms = roomData.GetRooms();
-        serializedRooms = serializer.SerializePlaces(rooms);
+        serializedRooms = serializer.SerializeRooms(rooms);
 
         return serializedRooms;
     };

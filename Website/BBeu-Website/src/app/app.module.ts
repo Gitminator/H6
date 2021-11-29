@@ -9,6 +9,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SearchbarComponent } from './Components/searchbar/searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+// import { Room } from './Objects/Room';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

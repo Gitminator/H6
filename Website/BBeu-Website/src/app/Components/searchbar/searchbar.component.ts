@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {AddressServiceService} from "../../Services/address-service.service";
+import {Room} from 'src/app/Objects/Room';
 
 
 @Component({
@@ -9,17 +10,38 @@ import {AddressServiceService} from "../../Services/address-service.service";
   styleUrls: ['./searchbar.component.css']
 })
 export class SearchbarComponent implements OnInit {
+
+  myControl = new FormControl();
+  room!: Room;
+  Rooms: Room[] = [];
   picker: any;
   testLabel: any;
   // inputtest: any;
   // intputtest: string = "test";
   testdatoLabel: any;
+  parsedJson: any;
 
 
 
   constructor(private addressServiceService: AddressServiceService) { }
 
   ngOnInit(): void {
+    this.getRooms();
+  }
+  getRooms()
+  {
+    this.addressServiceService.getRooms().subscribe(
+      value =>{
+          this.parsedJson = JSON.parse(value)
+          this.serializeRoom(this.parsedJson)
+      }
+    )
+  }
+
+  serializeRoom(json: any){
+    this.room = new Room(json.address,json.price);
+    this.Rooms.push(this.room) ;
+
   }
 
   search(inputtest:string) {

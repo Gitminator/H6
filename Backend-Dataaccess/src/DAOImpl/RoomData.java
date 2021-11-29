@@ -12,7 +12,6 @@ import java.util.List;
 
 public class RoomData implements RoomDAO {
     DatabaseConnector dbConnector = new DatabaseConnector();
-    Room room = null;
 
     @Override
     public List<Room> GetRooms() {
@@ -22,9 +21,7 @@ public class RoomData implements RoomDAO {
         try{
             Connection con = dbConnector.GetConnector();
 
-            System.out.println("Tring to access");
             Statement stmt=con.createStatement();
-            System.out.println("Before execute");
             ResultSet rs=stmt.executeQuery("select Address, Price from Room");
 
             while(rs.next())
