@@ -29,7 +29,8 @@ import { SearchtestingComponent } from './Components/searchtesting/searchtesting
     MatDatepickerModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

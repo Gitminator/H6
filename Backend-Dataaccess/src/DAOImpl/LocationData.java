@@ -14,7 +14,6 @@ import java.util.List;
 public class LocationData implements LocationDAO {
 
     DatabaseConnector dbConnector = new DatabaseConnector();
-    Location location = null;
 
     @Override
     public List<Location> GetLocations() {
@@ -29,7 +28,7 @@ public class LocationData implements LocationDAO {
 
             while(rs.next())
                 locations.add( location = new Location(rs.getInt(1),rs.getString(2)));
-            System.out.println("postnummer:" + " " + location.getPostalnumber() + " " + "by" + location.getCity());
+            System.out.println("postnummer:" + " " + location.getPostalcode() + " " + "by" + location.getCity());
             con.close();
 
         }

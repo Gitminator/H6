@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {RoomServiceService} from "../../Services/room-service.service";
 import {Room} from 'src/app/Objects/Room';
+import { Observable } from 'rxjs';
 
 
 
@@ -12,10 +13,13 @@ import {Room} from 'src/app/Objects/Room';
 })
 export class SearchbarComponent implements OnInit {
 
-  myControl = new FormControl();
+  @Input()
+  // items: Observable<any>;
 
-  room!: Room;
-  Rooms: Room[] = [];
+  myControl = new FormControl();
+  // items: [] = [];
+  // room!: Room;
+  rooms: Room[] = [];
   picker: any;
   testLabel: any;
   testdatoLabel: any;
@@ -24,24 +28,30 @@ export class SearchbarComponent implements OnInit {
 
 
 
-  constructor(private roomServiceService: RoomServiceService) { }
+  constructor(private roomServiceService: RoomServiceService) {
+    // this.result = roomServiceService.getRooms();
+  }
 
   ngOnInit(): void {
     this.getRooms();
   }
-  getRooms()
+  getRooms(): void
   {
-    this.roomServiceService.getRooms().subscribe(
-      value =>{
-          this.parsedJson = JSON.parse(value)
-          this.serializeRoom(this.parsedJson)
+    // this.roomServiceService.dataobs$.subscribe(x =>{
+    //   if(x.Address.length <= 1){
+    //     this.rooms[0] = x;
+    //   }
+    // })
+    this.roomServiceService.getRooms2()
+      .subscribe(rooms => this.rooms = rooms);
+      for (let room in  this.rooms){
+          console.log(this)
       }
-    )
   }
 
   serializeRoom(json: any){
-    this.room = new Room(json.address,json.price);
-    this.Rooms.push(this.room) ;
+    // this.room = new Room(json.address,json.price);
+    // this.Rooms.push(this.room) ;
 
   }
 

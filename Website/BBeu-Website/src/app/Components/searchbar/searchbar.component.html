@@ -50,11 +50,11 @@
     <h2>Aktivitets steder</h2>
     <ul class="list-group, activityList">
       <!--    <li *ngFor="let activity of Activities" >-->
-      <li *ngFor="let room of Rooms" >
+      <li *ngFor="let room of rooms" >
 
 <!--        (click)="onSelect(activity)"-->
 
-        <span class="list-group-item"><div class="listDivider">Sted: {{room.Address}} </div> <div class="listDivider"> Nuværende antal gæster: {{room.Price}}</div>  <div class="listDivider"> Maximum antal gæster: {{room.Price}}</div> </span>
+        <span class="list-group-item"><div class="listDivider">Addresse: {{room.Address}} </div> <div class="listDivider"> Price: {{room.Price}}</div>  </span>
 
 
       </li>
@@ -72,7 +72,7 @@
              [matAutocomplete]="auto">
 
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let room of Rooms " [value]="room.Address">
+    <mat-option *ngFor="let room of rooms " [value]="room.Address">
       {{room.Address}}
     </mat-option>
   </mat-autocomplete>

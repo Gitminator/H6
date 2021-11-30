@@ -11,8 +11,8 @@ public class LocationImpl {
     DeSerializer deserializer = new DeSerializer();
 
     /**
-     * Henter alle rooms
-     * @return liste af room
+     * Henter alle lokationer
+     * @return liste af lokation
      */
     public List<String> GetLocations()
     {

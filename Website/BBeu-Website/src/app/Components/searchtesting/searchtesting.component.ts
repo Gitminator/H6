@@ -8,28 +8,50 @@ import {Location} from "../../Objects/location";
   styleUrls: ['./searchtesting.component.css']
 })
 export class SearchtestingComponent implements OnInit {
-  Locations: Location[] = [];
-  location!: Location;
+  locations: Location[] = [];
+  // location!: Location;
   parsedJson: any;
+  errorMessage!: string;
+  products  = [];
 
-  constructor(private locationServiceService: LocationServiceService) { }
+  constructor(private locationServiceService: LocationServiceService) {
+
+  }
 
   ngOnInit(): void {
-    this.getLocations();
+    // this.getLocations();
+    this.locationServiceService.sendGetRequest().subscribe((data: any)=>{
+      console.log(data[0]);
+      this.locations = data;
+      console.log(this.locations);
+    })
   }
   getLocations()
   {
-    this.locationServiceService.getLocations().subscribe(
-      value =>{
-        this.parsedJson = JSON.parse(value)
-        this.serializeLocation(this.parsedJson)
-      }
-    )
-  }
-  serializeLocation(json: any){
-    this.location = new Location(json.postalCode,json.city);
-    this.Locations.push(this.location) ;
+    console.log(this.locationServiceService.getLocations());
 
+
+    // this.Locations = this.locationServiceService.getLocations().subscribe(
+    //   x => {
+    //     this.Locations = x
+    //   },
+    //   error => {
+    //     this.errorMessage = error;
+    //   }
+    // );
+
+
+  //   this.locationServiceService.getLocations().subscribe(
+  //     value =>{
+  //       this.parsedJson = JSON.parse(value)
+  //       this.serializeLocation(this.parsedJson)
+  //     }
+  //   )
   }
+  // serializeLocation(json: any){
+  //   this.location = new Location(json.Postalcode,json.City);
+  //   this.Locations.push(this.location) ;
+  //
+  // }
 
 }

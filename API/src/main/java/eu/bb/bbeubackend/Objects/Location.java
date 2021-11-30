@@ -1,15 +1,15 @@
 package eu.bb.bbeubackend.Objects;
 
 public class Location {
-    public int postalnumber;
+    public int postalcode;
     public String city;
 
-    public int getPostalnumber() {
-        return postalnumber;
+    public int getPostalcode() {
+        return postalcode;
     }
 
-    public void setPostalnumber(int postalnumber) {
-        this.postalnumber = postalnumber;
+    public void setPostalcode(int postalcode) {
+        this.postalcode = postalcode;
     }
 
     public String getCity() {
@@ -20,8 +20,8 @@ public class Location {
         this.city = city;
     }
 
-    public Location(int postalnumber, String city) {
-        this.postalnumber = postalnumber;
+    public Location(int postalcode, String city) {
+        this.postalcode = postalcode;
         this.city = city;
     }
 }

@@ -1,9 +1,9 @@
 export class Location {
-  public Postalnumber:number;
+  public Postalcode:number;
   public City:string;
 
-  constructor(postalnumber:number, city:string){
-    this.Postalnumber = postalnumber;
+  constructor(postalcode:number, city:string){
+    this.Postalcode = postalcode;
     this.City = city;
   }
 }
