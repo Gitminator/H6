@@ -8,50 +8,45 @@ import {Location} from "../../Objects/location";
   styleUrls: ['./searchtesting.component.css']
 })
 export class SearchtestingComponent implements OnInit {
-  locations: Location[] = [];
-  // location!: Location;
+  // locations: Location[] = [];
+  locations: Array<Location> = new Array<Location>();
+  location!: Location;
   parsedJson: any;
   errorMessage!: string;
   products  = [];
+  private stringifiedData!: string;
+  private apiResponse: Array<string> = new Array<string>();
 
   constructor(private locationServiceService: LocationServiceService) {
-
+    this.getLocations();
   }
 
   ngOnInit(): void {
-    // this.getLocations();
-    this.locationServiceService.sendGetRequest().subscribe((data: any)=>{
-      console.log(data[0]);
-      this.locations = data;
-      console.log(this.locations);
-    })
+    //this.getLocations();
+
   }
+  serializeLocation(json: any){
+    this.location = new Location(json.Postalcode,json.City);
+    this.locations.push(this.location) ;
+
+  }
+
   getLocations()
   {
-    console.log(this.locationServiceService.getLocations());
+    this.locationServiceService.sendGetRequest().subscribe((data: any)=>{
 
+      data.map((response: Response) => {
 
-    // this.Locations = this.locationServiceService.getLocations().subscribe(
-    //   x => {
-    //     this.Locations = x
-    //   },
-    //   error => {
-    //     this.errorMessage = error;
-    //   }
-    // );
+        // @ts-ignore
+        const ting = JSON.parse(response);
 
+        this.location = new Location(ting.postalcode,ting.city);
+        this.locations.push(this.location)
+        console.log(this.locations);
 
-  //   this.locationServiceService.getLocations().subscribe(
-  //     value =>{
-  //       this.parsedJson = JSON.parse(value)
-  //       this.serializeLocation(this.parsedJson)
-  //     }
-  //   )
-  }
-  // serializeLocation(json: any){
-  //   this.location = new Location(json.Postalcode,json.City);
-  //   this.Locations.push(this.location) ;
-  //
-  // }
+    })
 
+  })
+
+}
 }

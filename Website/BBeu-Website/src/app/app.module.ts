@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 // import { Room } from './Objects/Room';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { SearchtestingComponent } from './Components/searchtesting/searchtesting.component';
+import {CommonModule} from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { SearchtestingComponent } from './Components/searchtesting/searchtesting
     NavbarComponent,
     SearchbarComponent,
     SearchtestingComponent
+
 
   ],
   imports: [
@@ -30,6 +33,7 @@ import { SearchtestingComponent } from './Components/searchtesting/searchtesting
     MatFormFieldModule,
     HttpClientModule,
     MatAutocompleteModule,
+    CommonModule
 
   ],
   providers: [],

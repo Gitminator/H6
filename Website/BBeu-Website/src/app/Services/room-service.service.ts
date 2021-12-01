@@ -38,8 +38,13 @@ export class RoomServiceService {
 
 
   getRooms2(): Observable<Room[]>{
-    this.getRoomsObs();
-    return this.http.get<Room[]>(this.URL)
+
+
+    let url = 'http://localhost:8080/BBeu-Backend-1.0-SNAPSHOT/api/room';
+    return this.http.get<Room[]>(url);
+
+    // this.getRoomsObs();
+    // return this.http.get<Room[]>(this.URL)
 
 
 
