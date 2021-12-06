@@ -1,5 +1,8 @@
 package Objects;
 
+/**
+ * Klase består af objektet rum
+ */
 public class Room {
     private String address;
     private int price;

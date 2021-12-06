@@ -12,4 +12,5 @@ export class Location {
     console.log(postalcode);
     this.City = city;
   }
+
 }

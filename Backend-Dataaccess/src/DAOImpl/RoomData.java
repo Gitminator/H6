@@ -2,7 +2,6 @@ package DAOImpl;
 
 import DAO.RoomDAO;
 import eu.BB.Handlers.DatabaseConnector;
-import eu.BB.Handlers.Databasekinky;
 import Objects.Room;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,6 +12,10 @@ import java.util.List;
 public class RoomData implements RoomDAO {
     DatabaseConnector dbConnector = new DatabaseConnector();
 
+    /**
+     * Kontakter databasen...
+     * @return En serialiseret liste af rum
+     */
     @Override
     public List<Room> GetRooms() {
         List<Room> rooms = new ArrayList<Room>();

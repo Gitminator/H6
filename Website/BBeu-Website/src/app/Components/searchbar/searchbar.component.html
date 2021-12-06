@@ -44,23 +44,22 @@
 
 
 
-<!--  </form>-->
 
   <div>
-    <h2>Rooms</h2>
+    <h2>Locations</h2>
     <ul class="list-group, activityList">
       <!--    <li *ngFor="let activity of Activities" >-->
-      <li *ngFor="let room of rooms" >
+      <li *ngFor="let location of locations" >
 
-<!--        (click)="onSelect(activity)"-->
+        <!--        (click)="onSelect(activity)"-->
 
-<!--        <span class="list-group-item"><div class="listDivider">{{room}}Addresse: {{room.getaddress}}{{(parsedJson)}}{{(parsedJson2)}} </div> <div class="listDivider"> Price: {{room.getprice}}</div>  </span>-->
-<!--        hallo-->
-<!--        {{room.getaddress}}-->
+        <span class="list-group-item"><div class="listDivider">Fuld object: {{location}} </div>
+          <div class="listDivider">Postal: {{location.Postalcode}}</div>
+        <div class="listDivider">City: {{location.City}}</div>
+        </span>
 
-      </li>
-      <li *ngFor="let t of trees">
-        {{t.color}}
+
+
       </li>
     </ul>
 
@@ -75,11 +74,18 @@
 <!--             matInput-->
 <!--             [matAutocomplete]="auto">-->
 
-  <mat-autocomplete #auto="matAutocomplete">
-<!--    <mat-option *ngFor="let room of rooms " [value]="room.Address">-->
-<!--      {{room.Address}}-->
+<!--  <mat-autocomplete #auto="matAutocomplete">-->
+<!--    <mat-option *ngFor="let location of locations " [value]="location" >-->
+<!--      {{location}}-->
 <!--    </mat-option>-->
-  </mat-autocomplete>
+<!--  </mat-autocomplete>-->
+
+  <div class="md-form">
+    <input type="search" [className]="searchText"  placeholder="Search text">
+  </div>
+  <ul *ngFor="let location of locations ">
+    <li>{{location.City}}</li>
+  </ul>
 
 <!--    </mat-form-field>-->
 <!--    </form>-->

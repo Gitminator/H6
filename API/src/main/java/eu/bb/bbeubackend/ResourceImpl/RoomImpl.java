@@ -11,7 +11,6 @@ import java.util.List;
 
 public class RoomImpl {
     ServerHandlerRoom handlerRoom = new ServerHandlerRoom();
-    DeSerializer deserializer = new DeSerializer();
 
     /**
      * Henter alle rooms
@@ -20,9 +19,7 @@ public class RoomImpl {
     public List<String> GetRooms()
     {
         List<String> serializedRooms = new ArrayList<String>();
-//        List<Room> rooms = new ArrayList<Room>();
         serializedRooms = handlerRoom.GetRooms();
-//        rooms = deserializer.DeserializeRooms(serializedRooms);
 
         return serializedRooms;
     }

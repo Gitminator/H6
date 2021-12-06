@@ -8,7 +8,6 @@ import java.util.List;
 
 public class LocationImpl {
     ServerHandlerLocation handlerLocation = new ServerHandlerLocation();
-    DeSerializer deserializer = new DeSerializer();
 
     /**
      * Henter alle lokationer
@@ -17,9 +16,7 @@ public class LocationImpl {
     public List<String> GetLocations()
     {
         List<String> serializedRooms = new ArrayList<String>();
-//        List<Room> rooms = new ArrayList<Room>();
         serializedRooms = handlerLocation.GetLocations();
-//        rooms = deserializer.DeserializeRooms(serializedRooms);
 
         return serializedRooms;
     }

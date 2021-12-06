@@ -13,20 +13,10 @@ export class LocationServiceService {
     this.locations = new Observable<Location[]>();
   }
 
-  getLocations(){
 
-    // console.log("hej hej");
-
-    // return this.http.get<any>(url);
-    // this.locations = this.http
-    //   .get<Location[]>(url);
-    // console.log(this.locations);
-      // .map(data => _.values(data))
-      // .do(console.log);
-  }
-   public sendGetRequest(){
+   public getLocations(): Observable<Location[]>{
     let url = 'http://localhost:8080/BBeu-Backend-1.0-SNAPSHOT/api/location';
-    return this.http.get<Location>(url);
+    return this.http.get<Location[]>(url);
    }
 
 }

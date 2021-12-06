@@ -12,8 +12,11 @@ public class LocationService {
     Serializer serializer = new Serializer();
     LocationData locationData = new LocationData();
 
+    /**
+     *
+     * @return En serialiseret liste af rum
+     */
     public List<String> GetLocations(){
-        System.out.println("Get rooms message");
         List<Location> locations = new ArrayList<Location>();
         List<String> serializedLocations = new ArrayList<String>();
         locations = locationData.GetLocations();

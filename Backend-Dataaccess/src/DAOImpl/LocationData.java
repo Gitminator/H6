@@ -15,6 +15,10 @@ public class LocationData implements LocationDAO {
 
     DatabaseConnector dbConnector = new DatabaseConnector();
 
+    /**
+     * Kontakter databasen...
+     * @return En serialiseret liste af lokationer
+     */
     @Override
     public List<Location> GetLocations() {
         List<Location> locations = new ArrayList<Location>();

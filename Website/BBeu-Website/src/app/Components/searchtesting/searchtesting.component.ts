@@ -25,15 +25,11 @@ export class SearchtestingComponent implements OnInit {
     //this.getLocations();
 
   }
-  serializeLocation(json: any){
-    this.location = new Location(json.Postalcode,json.City);
-    this.locations.push(this.location) ;
 
-  }
 
   getLocations()
   {
-    this.locationServiceService.sendGetRequest().subscribe((data: any)=>{
+    this.locationServiceService.getLocations().subscribe((data: any)=>{
 
       data.map((response: Response) => {
 

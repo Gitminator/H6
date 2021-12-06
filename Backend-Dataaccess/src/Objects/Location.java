@@ -1,5 +1,8 @@
 package Objects;
 
+/**
+ * Klase består af objektet Location
+ */
 public class Location {
     public int postalcode;
     public String city;

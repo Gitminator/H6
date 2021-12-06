@@ -5,6 +5,7 @@ import {LocationServiceService} from "../../Services/location-service.service";
 import {Room} from 'src/app/Objects/Room';
 import { Observable } from 'rxjs';
 import {Tree} from "../../Objects/tree";
+import {Location} from "../../Objects/location";
 
 
 
@@ -17,7 +18,8 @@ export class SearchbarComponent implements OnInit {
 
   @Input()
   // items: Observable<any>;
-
+  locations: Array<Location> = new Array<Location>();
+  location!: Location;
   myControl = new FormControl();
   // items: [] = [];
   // room!: Room;
@@ -31,39 +33,38 @@ export class SearchbarComponent implements OnInit {
   trees: Array<Tree> = new Array<Tree>() ;
 
   AddressLabel: any;
+  searchText: any;
 
 
 
-  constructor(private roomServiceService: RoomServiceService) {
+  constructor(private roomServiceService: RoomServiceService, private locationServiceService: LocationServiceService) {
     // this.result = roomServiceService.getRooms();
-    for (let i = 0; i < 3; i++) {
-      this.trees.push(new Tree('jul' + i.toString()))
-
-    }
+    this.getLocations();
   }
 
   ngOnInit(): void {
 
     // this.testingSerializeRoom();
   }
-  // getRooms(): void
-  // {
-  //   this.roomServiceService.getRooms2()
-  //     .subscribe(rooms => this.rooms = rooms);
-  //     for (let room in  this.rooms){
-  //        this.parsedJson = JSON.parse(room);
-  //        console.log("Parsed json",this.parsedJson);
-  //        this.parsedJson2 = JSON.stringify(this.parsedJson);
-  //       console.log("Stringify json",this.parsedJson2);
-  //
-  //     }
-  // }
 
+  getLocations()
+  {
+    this.locationServiceService.getLocations().subscribe((data: any)=>{
 
+      data.map((response: Response) => {
 
+        // @ts-ignore
+        const ting = JSON.parse(response);
 
+        this.location = new Location(ting.postalcode,ting.city);
+        this.locations.push(this.location)
+        console.log(this.locations);
 
+      })
 
+    })
+
+  }
 
   search(inputtest:string) {
     // this.testLabel.setValue = inputtest.toString();
