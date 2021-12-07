@@ -7,9 +7,7 @@ export class Location {
   }
 
   constructor(postalcode:number, city:string){
-    console.log('construktortesting');
     this.Postalcode = postalcode;
-    console.log(postalcode);
     this.City = city;
   }
 

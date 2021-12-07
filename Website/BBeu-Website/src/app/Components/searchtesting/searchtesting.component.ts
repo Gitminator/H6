@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, EventEmitter, OnInit, Output} from '@angular/core';
 import {LocationServiceService} from "../../Services/location-service.service";
 import {Location} from "../../Objects/location";
 
@@ -8,14 +8,12 @@ import {Location} from "../../Objects/location";
   styleUrls: ['./searchtesting.component.css']
 })
 export class SearchtestingComponent implements OnInit {
-  // locations: Location[] = [];
   locations: Array<Location> = new Array<Location>();
   location!: Location;
-  parsedJson: any;
   errorMessage!: string;
   products  = [];
-  private stringifiedData!: string;
-  private apiResponse: Array<string> = new Array<string>();
+  searchword: any;
+
 
   constructor(private locationServiceService: LocationServiceService) {
     this.getLocations();
@@ -25,7 +23,10 @@ export class SearchtestingComponent implements OnInit {
     //this.getLocations();
 
   }
-
+  @Output() searchcriteria = new EventEmitter<String>();
+  searchThis() {
+    this.searchcriteria.emit(this.searchword)
+  }
 
   getLocations()
   {
@@ -38,7 +39,6 @@ export class SearchtestingComponent implements OnInit {
 
         this.location = new Location(ting.postalcode,ting.city);
         this.locations.push(this.location)
-        console.log(this.locations);
 
     })
 

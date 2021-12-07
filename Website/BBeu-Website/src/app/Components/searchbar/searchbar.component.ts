@@ -6,6 +6,9 @@ import {Room} from 'src/app/Objects/Room';
 import { Observable } from 'rxjs';
 import {Tree} from "../../Objects/tree";
 import {Location} from "../../Objects/location";
+import {FormBuilder, Validators} from "@angular/forms";
+import { NgModule } from '@angular/core';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -16,6 +19,16 @@ import {Location} from "../../Objects/location";
 })
 export class SearchbarComponent implements OnInit {
 
+  form = this.fb.group({
+    title: ['', [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(60)
+    ]],
+    address: ['vejvej', Validators.required],
+    dato: [new Date(), Validators.required]
+  });
+
   @Input()
   // items: Observable<any>;
   locations: Array<Location> = new Array<Location>();
@@ -25,21 +38,26 @@ export class SearchbarComponent implements OnInit {
   // room!: Room;
   rooms: Room[] = [];
   picker: any;
-  testLabel: any;
-  testdatoLabel: any;
-  parsedJson: any;
+
   parsedJson2: any;
   parsedJsons: any[] = [];
   trees: Array<Tree> = new Array<Tree>() ;
-
-  AddressLabel: any;
   searchText: any;
+  addressInput: any;
+  // addressModel: any;
+  testLabel: any;
+  testLabel2: any;
 
 
 
-  constructor(private roomServiceService: RoomServiceService, private locationServiceService: LocationServiceService) {
+  constructor(private roomServiceService: RoomServiceService, private locationServiceService: LocationServiceService,
+              private fb: FormBuilder
+  ) {
     // this.result = roomServiceService.getRooms();
     this.getLocations();
+  }
+  get testtitle(){
+    return this.form.controls['title'];
   }
 
   ngOnInit(): void {
@@ -58,8 +76,6 @@ export class SearchbarComponent implements OnInit {
 
         this.location = new Location(ting.postalcode,ting.city);
         this.locations.push(this.location)
-        console.log(this.locations);
-
       })
 
     })
@@ -67,7 +83,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   search(inputtest:string) {
-    // this.testLabel.setValue = inputtest.toString();
+    this.testLabel.setValue = inputtest.toString();
     console.log('it does nothing',inputtest);
   }
 
@@ -76,7 +92,8 @@ export class SearchbarComponent implements OnInit {
     console.log('it does nothing',testdatoLabel);
   }
 
-  addressSearch(AddressLabel:string){
-      console.log(AddressLabel);
+  addressSearch(addressInput: string){
+    this.testLabel2.setValue= addressInput.toString();
+      console.log(" works" + addressInput);
   }
 }

@@ -13,6 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { SearchtestingComponent } from './Components/searchtesting/searchtesting.component';
 import {CommonModule} from '@angular/common';
+import {FormBuilder, Validators} from "@angular/forms";
+import {MatSliderModule} from '@angular/material/slider';
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -20,7 +24,8 @@ import {CommonModule} from '@angular/common';
     AppComponent,
     NavbarComponent,
     SearchbarComponent,
-    SearchtestingComponent
+    SearchtestingComponent,
+
 
 
   ],
@@ -33,10 +38,13 @@ import {CommonModule} from '@angular/common';
     MatFormFieldModule,
     HttpClientModule,
     MatAutocompleteModule,
-    CommonModule
+    CommonModule,
+    MatSliderModule,
+    MatChipsModule,
+    MatIconModule
 
   ],
-  providers: [],
+  providers: [FormBuilder, Validators],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
