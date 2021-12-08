@@ -1,6 +1,93 @@
 
-<app-navbar></app-navbar>>
+
+
+
+<!--<app-navbar></app-navbar>-->
+
+<div class="example-form" id="temptemp">
+<!--  <nav class="navbar navbar-dark bg-primary" id="navigationBar">-->
+  <div class="toolbar" role="banner">
+    <div class="container">
+      <a class="navbar-brand">
+        {{'Sitetitle' | translate }}
+      </a>
+      <span class="form-inline" id="languageChanger">
+      <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+        <option *ngFor="let language of translate.getLangs()" [value]="language"
+                [selected]="language === translate.currentLang">
+          {{ language }}
+        </option>
+      </select>
+    </span>
+    </div>
+<!--  </nav>-->
+  </div >
+
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label>{{'city-postal' | translate}}</label>
+        {{addressOutput}}
+<!--        <input type="text" class="form-control">-->
+      <app-addres-postal-search         (addressOutput)="addItem($event)" [addressInput]="addressInput"></app-addres-postal-search>
+
+        <ul >
+          <li *ngFor="let item of locations">{{item}}</li>
+          <li><p>adadasd</p></li>
+<!--          <li>{{item.getPostalcode()}}</li>-->
+<!--          <li>{{item.City()}}</li>-->
+
+        </ul>
+<!--        <small class="text-danger">{{'NameError' | translate}}</small>-->
+
+      </div>
+
+      <div class="form-group">
+        <h2>{{'Dateformat' | translate}} DD/MM/YYYY</h2>
+<!--        <input type="da" class="form-control">-->
+        <app-date-from-search></app-date-from-search>
+      </div>
+
+      <div class="form-group">
+        <app-date-to-search></app-date-to-search>
+      </div>
+
+      <div class="form-group">
+<!--        <label>{{'Password' | translate}}</label>-->
+<!--        <input type="password" class="form-control">-->
+        <button type="submit" (click)="searchaddresspostal" class="btn btn-block btn-danger">{{'searchbutton' | translate}}</button>
+
+        <label [className]="testLabel2" >
+<!--          {{addressInput.value}}-->
+          hej</label>
+
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+
 <app-searchbar></app-searchbar>
-<app-searchtesting></app-searchtesting>
+
+
+<!--<app-searchtesting></app-searchtesting>-->
+
+<!--&lt;!&ndash;<span class="form-inline">&ndash;&gt;-->
+<!--&lt;!&ndash;  <select&ndash;&gt;-->
+<!--&lt;!&ndash;    class="form-control"&ndash;&gt;-->
+<!--&lt;!&ndash;    #selectedLang&ndash;&gt;-->
+<!--&lt;!&ndash;    (change)="switchLang(selectedLang.value)">&ndash;&gt;-->
+<!--&lt;!&ndash;    <option *ngFor="let language of translate.getLangs()"&ndash;&gt;-->
+<!--&lt;!&ndash;            [value]="language"&ndash;&gt;-->
+<!--&lt;!&ndash;            [selected]="language === translate.currentLang">&ndash;&gt;-->
+<!--&lt;!&ndash;      {{ language }}&ndash;&gt;-->
+<!--&lt;!&ndash;    </option>&ndash;&gt;-->
+<!--&lt;!&ndash;  </select>&ndash;&gt;-->
+<!--&lt;!&ndash;</span>&ndash;&gt;-->
+
+
+
 
 <router-outlet></router-outlet>

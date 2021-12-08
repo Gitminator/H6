@@ -17,6 +17,12 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {MatSliderModule} from '@angular/material/slider';
 import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { AddresPostalSearchComponent } from './Components/addres-postal-search/addres-postal-search.component';
+import { DateFromSearchComponent } from './Components/date-from-search/date-from-search.component';
+import { DateToSearchComponent } from './Components/date-to-search/date-to-search.component';
 
 
 @NgModule({
@@ -25,12 +31,22 @@ import {MatIconModule} from "@angular/material/icon";
     NavbarComponent,
     SearchbarComponent,
     SearchtestingComponent,
+    AddresPostalSearchComponent,
+    DateFromSearchComponent,
+    DateToSearchComponent,
 
 
 
   ],
   imports: [
     BrowserModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -48,3 +64,8 @@ import {MatIconModule} from "@angular/material/icon";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+

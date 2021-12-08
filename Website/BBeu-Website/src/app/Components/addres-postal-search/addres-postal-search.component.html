@@ -1,0 +1,24 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>   {{'city-postal' | translate }}</mat-label>
+    <input matInput type="text"
+
+           placeholder="Indtast by eller postnummer"
+           [matAutocomplete]="auto" #addressOutput>
+
+<!--           [className]="testoutput" >-->
+    <!--           id="addressInput"-->
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let location of locations" [value]="location.City">
+        {{location}}
+         {{location.City }}
+      </mat-option>
+    </mat-autocomplete>
+
+  </mat-form-field>
+  <button (click)="addNewItem(addressOutput)">Add to parent's list</button>
+
+  <p>    {{addressInput}}
+  </p>
+</form>
