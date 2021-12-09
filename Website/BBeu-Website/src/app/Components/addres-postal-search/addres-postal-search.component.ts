@@ -1,8 +1,10 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {RoomServiceService} from "../../Services/room-service.service";
 import {LocationServiceService} from "../../Services/location-service.service";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormControl} from "@angular/forms";
 import {Location} from "../../Objects/location";
+import {Observable, startWith} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-addres-postal-search',
@@ -10,24 +12,44 @@ import {Location} from "../../Objects/location";
   styleUrls: ['./addres-postal-search.component.css']
 })
 export class AddresPostalSearchComponent implements OnInit {
-
-  locations: Array<Location> = new Array<Location>();
+  myControl = new FormControl();
+  locations: Location[] = [];
   location!: Location;
-  @Input() addressInput: any;
-  @Output() addressOutput: Location = new EventEmitter<Location>();
-  testoutput: any = "eheheheheh";
+  filteredOptions!: Observable<Location[]> ;
+  // @Input() addressInput: any;
+  // @Output() addressOutput = new EventEmitter<Location>();
+  // @Output() addressOutput:  EventEmitter<any>() = new EventEmitter();
+
+  // @Output() addressOutput: EventEmitter<any> = new EventEmitter();
+
 
 
   constructor(private roomServiceService: RoomServiceService, private locationServiceService: LocationServiceService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder) {
+
+  }
 
   ngOnInit(): void {
-    this.getLocations()
+    this.getLocations();
+
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => (typeof value === 'string' ? value : value.City)),
+      map(name => (name ? this._filter(name) : this.locations.slice())),
+    );
+
   }
 
-  addNewItem(value: Location) {
-    this.addressOutput.emit(value);
+  private _filter(name: string): Location[] {
+    const filterValue = name.toLowerCase();
+
+    return this.locations.filter(loc => loc.City.toLowerCase().includes(filterValue));
   }
+
+  // addNewItem(value: Location) {
+  //   this.addressOutput.emit(value);
+  // }
+
 
   getLocations()
   {
@@ -37,7 +59,7 @@ export class AddresPostalSearchComponent implements OnInit {
 
         // @ts-ignore
         const ting = JSON.parse(response);
-
+console.log(ting.postalcode);
         this.location = new Location(ting.postalcode,ting.city);
         this.locations.push(this.location)
       })
@@ -46,4 +68,8 @@ export class AddresPostalSearchComponent implements OnInit {
 
   }
 
+  Searchclick(input: any) {
+    this.roomServiceService.getRooms()
+    this.roomServiceService.ifdataobs$.next(true);
+  }
 }

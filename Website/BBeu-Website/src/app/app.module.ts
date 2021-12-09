@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { SearchtestingComponent } from './Components/searchtesting/searchtesting.component';
 import {CommonModule} from '@angular/common';
-import {FormBuilder, Validators} from "@angular/forms";
+import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSliderModule} from '@angular/material/slider';
 import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
@@ -57,7 +57,9 @@ import { DateToSearchComponent } from './Components/date-to-search/date-to-searc
     CommonModule,
     MatSliderModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [FormBuilder, Validators],

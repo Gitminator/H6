@@ -27,17 +27,17 @@
     <form>
       <div class="form-group">
         <label>{{'city-postal' | translate}}</label>
-        {{addressOutput}}
 <!--        <input type="text" class="form-control">-->
-      <app-addres-postal-search         (addressOutput)="addItem($event)" [addressInput]="addressInput"></app-addres-postal-search>
+<!--      <app-addres-postal-search         (addressOutput)="addItem($event)" [addressInput]="addressInput"></app-addres-postal-search>-->
 
-        <ul >
-          <li *ngFor="let item of locations">{{item}}</li>
-          <li><p>adadasd</p></li>
+        <app-addres-postal-search ></app-addres-postal-search>
+<!--        <ul >-->
+<!--          <li *ngFor="let item of locations">{{item}}</li>-->
+<!--          <li><p>adadasd</p></li>-->
 <!--          <li>{{item.getPostalcode()}}</li>-->
 <!--          <li>{{item.City()}}</li>-->
 
-        </ul>
+<!--        </ul>-->
 <!--        <small class="text-danger">{{'NameError' | translate}}</small>-->
 
       </div>
@@ -57,11 +57,14 @@
 <!--        <input type="password" class="form-control">-->
         <button type="submit" (click)="searchaddresspostal" class="btn btn-block btn-danger">{{'searchbutton' | translate}}</button>
 
-        <label [className]="testLabel2" >
-<!--          {{addressInput.value}}-->
-          hej</label>
 
       </div>
+      <ul>
+        <li *ngFor="let room of rooms">
+              {{room.getaddress()}}
+        </li>
+      </ul>
+      <h1 *ngIf="ifroom" >{{rooms[0].getaddress()}}</h1>
 
     </form>
   </div>
@@ -72,7 +75,7 @@
 <app-searchbar></app-searchbar>
 
 
-<!--<app-searchtesting></app-searchtesting>-->
+<app-searchtesting></app-searchtesting>
 
 <!--&lt;!&ndash;<span class="form-inline">&ndash;&gt;-->
 <!--&lt;!&ndash;  <select&ndash;&gt;-->

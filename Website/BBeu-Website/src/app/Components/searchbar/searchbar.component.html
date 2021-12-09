@@ -36,22 +36,22 @@
 
 
 
-<!--  <form class="example-form">-->
-<!--    <mat-form-field class="example-full-width" appearance="fill">-->
-<!--      <mat-label>By/Postnummer:</mat-label>-->
-<!--      <input matInput type="text"-->
-<!--             placeholder="locationHolder"-->
-<!--             [matAutocomplete]="auto" #addressInput>-->
-<!--      &lt;!&ndash;      [className]="addressClass"&ndash;&gt;-->
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>By/Postnummer:</mat-label>
+      <input matInput type="text"
+             placeholder="locationHolder"
+             [matAutocomplete]="auto" #addressInput>
+      <!--      [className]="addressClass"-->
 
-<!--      <mat-autocomplete #auto="matAutocomplete">-->
-<!--        <mat-option *ngFor="let location of locations" [value]="location.City">-->
-<!--          {{location.City}}-->
-<!--        </mat-option>-->
-<!--      </mat-autocomplete>-->
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let location of locations" [value]="location.City">
+          {{location.City}}
+        </mat-option>
+      </mat-autocomplete>
 
-<!--    </mat-form-field>-->
-<!--  </form>-->
+    </mat-form-field>
+  </form>
 
 
   <h2>Dato format: DD/MM/YYYY</h2>

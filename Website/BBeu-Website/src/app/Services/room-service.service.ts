@@ -10,29 +10,17 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class RoomServiceService {
   items: [] = [];
   private readonly URL = 'http://localhost:8080/BBeu-Backend-1.0-SNAPSHOT/api/room';
-  dataobs$: BehaviorSubject<Room> = new BehaviorSubject<Room>(new Room("",1));
-
+  dataobs$: BehaviorSubject<Room[]> = new BehaviorSubject<Room[]>([]);
+  rooms!: Observable<Room[]>;
+  ifdataobs$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) {
 
   }
   getRooms(): Observable<Room[]>{
     let url = 'http://localhost:8080/BBeu-Backend-1.0-SNAPSHOT/api/room';
+    this.http.get<Room[]>(url).subscribe(x => {
+      this.dataobs$.next(x)})
     return this.http.get<Room[]>(url);
-
-    //
-    // // return this.http.get<any>(url);
-    // this.http.get(url).toPromise().then(data => {
-    //   console.log(data);
-    //
-    //   for (let key in data){
-    //     if (data.hasOwnProperty(key)){
-    //       // @ts-ignore
-    //       this.items.push(key);
-    //     }
-    //   }
-    //
-    // })
-    // return this.items;
 
   }
 
@@ -65,7 +53,7 @@ export class RoomServiceService {
     console.log("starting call");
     let data = new Room("",4);
     this.http.get<Room>("http://localhost:8080/BBeu-Backend-1.0-SNAPSHOT/api/room").forEach(x => { data = x});
-    this.dataobs$.next(data);
+    // this.dataobs$.next(data);
 
   }
 

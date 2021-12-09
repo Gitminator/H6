@@ -1,24 +1,33 @@
 <form class="example-form">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>   {{'city-postal' | translate }}</mat-label>
-    <input matInput type="text"
-
-           placeholder="Indtast by eller postnummer"
-           [matAutocomplete]="auto" #addressOutput>
-
+    <input matInput  type="text" [formControl]="myControl" placeholder="Indtast by eller postnummer" [matAutocomplete]="auto" >
+<!--    #addressOutput-->
 <!--           [className]="testoutput" >-->
     <!--           id="addressInput"-->
 
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let location of locations" [value]="location.City">
-        {{location}}
+      <mat-option (click)="Searchclick($event)" *ngFor="let location of locations" [value]="location.City" >
          {{location.City }}
       </mat-option>
     </mat-autocomplete>
 
   </mat-form-field>
-  <button (click)="addNewItem(addressOutput)">Add to parent's list</button>
+<!--  <button (click)="addNewItem(location)">Add to parent's list</button>-->
 
-  <p>    {{addressInput}}
-  </p>
+
 </form>
+
+
+
+<!--<form class="example-form">-->
+<!--  <mat-form-field class="example-full-width" appearance="fill">-->
+<!--    <mat-label>Assignee</mat-label>-->
+<!--    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">-->
+<!--    <mat-autocomplete #auto="matAutocomplete">-->
+<!--      <mat-option *ngFor="let option of filteredOptions " [value]="option">-->
+<!--        {{option.City}}-->
+<!--      </mat-option>-->
+<!--    </mat-autocomplete>-->
+<!--  </mat-form-field>-->
+<!--</form>-->
