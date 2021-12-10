@@ -21,12 +21,12 @@ public class DeSerializer {
 
     public List<Location> DeserializeLocations(List<String> serializedLocations){
         Gson gson = new Gson();
-        List<Location> rooms = new ArrayList<Location>();
+        List<Location> locations = new ArrayList<Location>();
         for (String tempLocation: serializedLocations) {
             Location location = gson.fromJson(tempLocation, Location.class);
-            rooms.add(location);
+            locations.add(location);
         }
-        return rooms;
+        return locations;
 
     }
 }

@@ -6,12 +6,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
-import { SearchbarComponent } from './Components/searchbar/searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 // import { Room } from './Objects/Room';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { SearchtestingComponent } from './Components/searchtesting/searchtesting.component';
 import {CommonModule} from '@angular/common';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSliderModule} from '@angular/material/slider';
@@ -29,8 +27,6 @@ import { DateToSearchComponent } from './Components/date-to-search/date-to-searc
   declarations: [
     AppComponent,
     NavbarComponent,
-    SearchbarComponent,
-    SearchtestingComponent,
     AddresPostalSearchComponent,
     DateFromSearchComponent,
     DateToSearchComponent,

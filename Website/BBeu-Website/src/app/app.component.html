@@ -55,8 +55,7 @@
       <div class="form-group">
 <!--        <label>{{'Password' | translate}}</label>-->
 <!--        <input type="password" class="form-control">-->
-        <button type="submit" (click)="searchaddresspostal" class="btn btn-block btn-danger">{{'searchbutton' | translate}}</button>
-
+        <button type="submit" (click)="searchaddresspostal" id="buttonstyling" class="btn btn-block btn-danger">{{'searchbutton' | translate}}</button>
 
       </div>
       <ul>
@@ -64,7 +63,6 @@
               {{room.getaddress()}}
         </li>
       </ul>
-      <h1 *ngIf="ifroom" >{{rooms[0].getaddress()}}</h1>
 
     </form>
   </div>
@@ -72,23 +70,11 @@
 
 
 
-<app-searchbar></app-searchbar>
+<!--<app-searchbar></app-searchbar>-->
 
 
-<app-searchtesting></app-searchtesting>
+<!--<app-searchtesting></app-searchtesting>-->
 
-<!--&lt;!&ndash;<span class="form-inline">&ndash;&gt;-->
-<!--&lt;!&ndash;  <select&ndash;&gt;-->
-<!--&lt;!&ndash;    class="form-control"&ndash;&gt;-->
-<!--&lt;!&ndash;    #selectedLang&ndash;&gt;-->
-<!--&lt;!&ndash;    (change)="switchLang(selectedLang.value)">&ndash;&gt;-->
-<!--&lt;!&ndash;    <option *ngFor="let language of translate.getLangs()"&ndash;&gt;-->
-<!--&lt;!&ndash;            [value]="language"&ndash;&gt;-->
-<!--&lt;!&ndash;            [selected]="language === translate.currentLang">&ndash;&gt;-->
-<!--&lt;!&ndash;      {{ language }}&ndash;&gt;-->
-<!--&lt;!&ndash;    </option>&ndash;&gt;-->
-<!--&lt;!&ndash;  </select>&ndash;&gt;-->
-<!--&lt;!&ndash;</span>&ndash;&gt;-->
 
 
 

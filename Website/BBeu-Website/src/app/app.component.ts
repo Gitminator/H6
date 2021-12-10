@@ -10,15 +10,11 @@ import {Room} from "./Objects/Room";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'BBeu-Website';
-  // @Input() addressInput: any;
-  // locations: Array<Location> = new Array<Location>();
-  // serializedLocations: Array<string> = new Array<string>();
+
   ifroom: boolean = false;
   testLabel2: any;
-  addressInput: any = "hejmor";
   room!: Room;
-  // rooms: Room[] = [];
+
   rooms: Room[] = new Array<Room>();
 
   constructor(
@@ -29,7 +25,6 @@ export class AppComponent {
     this.roomservice.dataobs$.subscribe((x: any )=> {
 
       x.map((response: Response) => {
-
         // @ts-ignore
         const ting = JSON.parse(response);
 
@@ -39,17 +34,9 @@ export class AppComponent {
 
       })
 
-      // if (x.length > 0){
-      //   this.rooms.push(x[0]) ;
-      //   console.log(JSON.parse(x[0].getaddress()));
-      //
-      // }
-
     })
 
-    translate.addLangs(['Dansk', 'Deutsch', 'Svenska', 'Norsk', 'Suomalainen', 'en']);
-    // translate.addLangs(['en', 'nl']);
-
+    translate.addLangs(['Dansk', 'Deutsch', 'Svenska', 'Norsk', 'Suomalainen']);
     translate.setDefaultLang('Dansk');
   }
 
